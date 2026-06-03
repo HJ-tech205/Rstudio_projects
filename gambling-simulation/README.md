@@ -9,7 +9,7 @@ A data science and algorithmic simulation built in R that models financial risk 
 The core simulation engine operates on standard textbook probability modeling and inverse transform sampling to accurately match real-world risk environments:
 
 1. **Mathematical Curve Generation**: Incorporates a strict **3% House Edge** Return-to-Player (RTP) algorithm. Using uniform random numbers ($u \in [0, 1]$), the system warps a flat decimal distribution into a steep, exponential decay curve:
-   $$\text{Crash Multiplier} = \begin{cases} 1.00 & \text{if } u \le 0.03 \\ \frac{0.97}{u} & \text{if } u > 0.03 \end{cases}$$
+$$\text{Crash Multiplier} = \begin{cases} 1.00 & \text{if } u \le 0.03 \\ \frac{0.97}{u} & \text{if } u > 0.03 \end{cases}$$
 2. **Behavioral Execution Logic**: Simulates an automated player executing a fixed-stake strategy over a massive sample space ($10,000$ independent consecutive rounds).
    * **Base Stake ($B$)**: R100 ZAR per round.
    * **Target Execution Threshold ($T$)**: Fixed cash-out at $1.50\times$.
