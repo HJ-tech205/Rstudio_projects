@@ -1,0 +1,9 @@
+.RData
+.Ruserdata
+.Renviron
+.Rhistory
+.Rproj.user/
+data/incoming_cvs/*
+data/processed_archive/*
+!data/incoming_cvs/.gitkeep
+!data/processed_archive/.gitkeep
