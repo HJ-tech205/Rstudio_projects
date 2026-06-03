@@ -1,4 +1,3 @@
----
 
 ```markdown
 # Automated ATS CV Screening & Database Ingestion Pipeline
