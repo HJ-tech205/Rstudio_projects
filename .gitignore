@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+=======
+.RData
+.Ruserdata
+.Renviron
+.Rhistory
+.Rproj.user/
+data/incoming_cvs/*
+data/processed_archive/*
+!data/incoming_cvs/.gitkeep
+!data/processed_archive/.gitkeep
+>>>>>>> 06323798921f3ec81d35359191b2adea5e1fa793
