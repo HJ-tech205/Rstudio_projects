@@ -1,12 +1,11 @@
 
-```markdown
 # Automated ATS CV Screening & Database Ingestion Pipeline
 
 A modular backend data engineering pipeline built in **R** that automates the ingestion, parsing, evaluation, and logging of applicant resumes. The system monitors a target directory for incoming PDF CVs, extracts key profile data using text mining and customized regular expressions, applies programmatic gatekeeping criteria, and securely syncs the structured results into a **PostgreSQL** relational database.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **Automated PDF Text Extraction:** Leverages binary extraction tools to ingest unstructured layout text directly from incoming resume files.
 * **Smart Experience Extraction & Fallback:** Utilizes an advanced text parsing logic that looks for explicit experience phrase patterns. If absent, it automatically triggers a fallback algorithm that extracts historical date mentions to compute total professional experience span.
@@ -14,9 +13,22 @@ A modular backend data engineering pipeline built in **R** that automates the in
 * **Automated File Janitor (Archiving):** Automatically handles file clean-up by routing processed resumes out of the incoming inbox folder into a secure archive directory to prevent duplicate database entries.
 * **Secure Database Ingestion:** Connects securely to a local PostgreSQL cluster using environment variables to mask sensitive database credentials (`.Renviron`).
 
----
+## Technical Stack
 
-## 📁 System Architecture
+* **Language:** R (v4.x)
+* **Core Libraries:** `tidyverse` (Data manipulation & string processing), `pdftools` (PDF text mining)
+* **Database Interface:** `DBI`, `RPostgres`
+* **Database Management:** PostgreSQL, pgAdmin 4
+
+
+## How To Run the Pipeline
+
+### 1. Database Setup
+Ensure your PostgreSQL server is active and configuration details are set up. Run the initialization script once to instantiate your relational schema structures (`cv_shortlist` and `cv_discards` tables):
+```R
+source("create_tables.R")
+
+## System Architecture
 
 ```text
 ats-cv-pipeline/
@@ -27,3 +39,5 @@ ats-cv-pipeline/
 ├── pipeline.R              # Main Application: The data ingestion and filtering engine
 ├── .gitignore              # Security: Prevents environment keys and raw data from leaking
 └── README.md               # Documentation
+───
+
